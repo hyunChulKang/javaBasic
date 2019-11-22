@@ -56,6 +56,26 @@ public class ComparisonOperator {
 		b = !"abc".equals(new String("abc"));
 		// 같지 않다의 결과를 얻기 위해서는 !(NOT)을 앞에 붙여준다.
 		System.out.println(b);
+		System.out.println("!!!!!!!!!");
+
+		//다음의 문장들을 코도로 작성 후 연산결과를 출력해주세요.
+		// 1보다 2가 큰가?
+		int one =1;
+		int two =2;
+		
+		boolean total = one < two;
+		System.out.println(total);
+		//0은 100보다 작거나 같은가?
+		b = 0 <=100;
+		System.out.println(b);
+		
+		// 3.14f와 3.14는 다른가?
+		b = 3.14f != 3.14;
+		System.out.println(b);
+		
+		//"남자"와"여자"는 다른가?
+		b = !"남자".equals("여자");
+		System.out.println(b);
 		
 	}
 
