@@ -41,18 +41,27 @@ public class Sort {												//클래스 타입의 Sort
 		//등수를 저장할 배열생성 <여기에 1을 채워넣기
 		//나보더 좋은 점수만나면 +1등
 		
-		int[] ranks = new int[] {1,1,1,1,1,1,1,1,1,1};
-			
-		for(int j = 0; j< numbers.length-2; j++){
-			if(numbers[j] >numbers[j+1]){
+	int[] ranks = new int[] {1,1,1,1,1,1,1,1,1,1};
+		
+	for(int i = 0; i <numbers.length; i++){	
+			int j=0;
+		for( j = 0; j<numbers.length; j++){
 				
+			if(numbers[i] < numbers[j]){
+					ranks[i] += 1;
 			}else{
-				break;
+				
 			}
-		for(int i= 0; i<ranks.length; i++){
 			
+			
+//		for(int k= 0; k<ranks.length; k++){
+//			
+//		}
+	}
 		}
-		}
+	System.out.println(Arrays.toString(numbers));
+
+	System.out.println(Arrays.toString(ranks));
 }
 
 	private static void intsertSort(int[] numbers) {			//삽입정렬
