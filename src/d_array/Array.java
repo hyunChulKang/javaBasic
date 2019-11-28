@@ -14,8 +14,8 @@ public class Array {
 		 */
 		
 		//배열은 참조형 타입입니다.
-		int[] array; 					//배열의 주소를 저장할 공간이 만들어진다.
-		array = new int[5]; 			//배열이 생성되고 그 주소가 저장된다.
+		int[] array; 													//배열의 주소를 저장할 공간이 만들어진다.
+		array = new int[5]; 											//배열이 생성되고 그 주소가 저장된다.
 
 			// new : 새로운 저장공간 생성 및 주소 변환
 			//int[5] : int를 저장할 수 있는 5개의 공간
@@ -33,15 +33,15 @@ public class Array {
 		
 		int[] iArray1 = new int[]{1, 2, 3};
 		//값의 개수로 배열의 길이가 정해진다.
-		int[] iArray2 ={1, 2, 3};		//선언과 초기화를 동시에 해야한다.
+		int[] iArray2 ={1, 2, 3};										//선언과 초기화를 동시에 해야한다.
 		int[] iArray3;
-//		iArray3 = {1, 2, 3,}; 			//컴파일에러발생
+//		iArray3 = {1, 2, 3,}; 											//컴파일에러발생
 		
 		array[0] = 10;
 		array[1] = 20;
 		array[2] = 30;
 		array[3] = 40;
-		array[4] = 50;					 //마지막 인덱스는 "배열의 길이 -1"이다.
+		array[4] = 50;													 //마지막 인덱스는 "배열의 길이 -1"이다.
 	
 		//정수를 저장할 수 있는 길이가 10인 배열을 생성 및 초기화 해주세요.
 		int[] _array = new int[10];
@@ -60,7 +60,7 @@ public class Array {
 		
 		//모든 인덱스에 있는 값의 합계를 출력해주세요.
 		
-		int sum =_array[0] + _array[1] + 
+		int sum =_array[0] + _array[1] + 								//배열의 합계
 				 _array[2] + _array[3] + 
 				 _array[4] + _array[5] + 
 				 _array[6] + _array[7] +
@@ -68,37 +68,47 @@ public class Array {
 		System.out.println(sum);
 		
 		//index는 1씩 증가하는 규칙이 있어 for문과 함께 사용하기 좋다.
-		for(int i = 0; i <array.length; i++){
+		for(int i = 0; i <array.length; i++){							//배열의 길이만큼 
 			System.out.println(array[i]);
 		}
 		//배열의 길이를 알고있다고 숫자를 사용하는 것을 하드코딩이라고 한다.
 		//길이를 알더라도 length를 사용하는것이 더 좋은 코드이다.
 		
-		for(int i = 0; i <array.length; i++){
+		for(int i = 0; i <array.length; i++){							//배열의 길이만큼 1 씩 증가하여 배열초기화 
 			array[i] = i + 1;
 		}
-		System.out.println(Arrays.toString(array));
+		System.out.println( "배열의 값은"+Arrays.toString(array));
 			
-		//배열에 숫자를 담고 합계와 펴균을 구해보자.
+		//배열에 숫자를 담고 합계와 평균을 구해보자.
 		int[] numbers = new int[10];
 		
-		for(int i = 0; i < numbers.length; i++){
-			numbers[i] = (int)(Math.random()*100) + 1;
+		for(int i = 0; i < numbers.length; i++){						// 배열에 임의 숫자 담기 
+			numbers[i] = (int)(Math.random()*100) + 1;					
 		}
 		System.out.println(Arrays.toString(numbers));
 		
-		sum = 0;
-		double avg = 0;
+//		sum = 0;
+//		double avg = 0;
+//		
+//		for (int i = 0; i < numbers.length; i++){						// 합계 및 평균 구하기
+//			sum += numbers[i];
+//		}
+//		
+//		avg = (double)sum / numbers.length;
+//		System.out.println("합계 : " + sum + "/ 평균 : " + avg);
 		
-		for (int i = 0; i < numbers.length; i++){
+		sum = 0;
+		double avg =0;
+		
+		for(int i =0; i <numbers.length; i++){
 			sum += numbers[i];
 		}
-		
 		avg = (double)sum / numbers.length;
 		System.out.println("합계 : " + sum + "/ 평균 : " + avg);
 		
+		
 		//향상된 for문
-		for(int number : numbers){ //배열에 있는 값을 차례대로 변수에 넣는다.
+		for(int number : numbers){ //배열에 있는 값을 차례대로 변수에 넣는다.		   	// 배열에 있는 값 차례로 변수로 뽑기
 			System.out.println(number);
 		}
 		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
@@ -106,7 +116,7 @@ public class Array {
 		int mi =numbers[0];
 		int ma =numbers[0];
 		 
-		for(int i = 0; i< numbers.length; i ++){
+		for(int i = 0; i< numbers.length; i ++){						//최소 ,최대값 구하기
 			if(numbers[i] < mi){
 				mi =numbers[i];
 			}
@@ -125,26 +135,61 @@ public class Array {
 		//배열의 값을 섞어주세요.
 		//0번 인덱스의 값과 랜덤 인덱스의 값을 서로 교환한다.
 		
-		for(int i = 0; i < shuffle.length * 10; i++){
+		for(int i = 0; i < shuffle.length * 10; i++){					//1~10 배열 값 섞기 섞기
 			int j = (int)(Math.random() * shuffle.length);
 			int ran = shuffle[0];
 			shuffle[0] =shuffle[j];
 			shuffle[j] = ran; 
 		}
 		System.out.println(Arrays.toString(shuffle));
-		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
-		//1~10 사이의 난수를 500번 생성하고, 각 숫자가 생성된 횟수를 출력해주세요.
+		
+		System.out.println("1~10 사이의 난수를 500번 생성하고, 각 숫자가 생성된 횟수를 출력해주세요.");
 		int[] cnt = new int[10];
 		int[] rand = new int[10];
 		
-	for(int j = 0; j <50; j++){
+	for(int j = 0; j <50; j++){											//1~10난수 생성  500번 후 각 숫자의 생성 횟수 구하기
 		for(int i = 0; i <cnt.length; i++){
 			rand[i] = (int)(Math.random()*10);
 				cnt[rand[i]] ++;
 		}
 	}
 		for(int i = 0; i <cnt.length; i++){
-			System.out.println(i + "의 개수" + cnt[i]);
+			System.out.println (i + "의 개수 " + cnt[i]+" ");
+		}
+		
+		int[] iArr1 = new int [10];
+		int[] iArr2 = new int [10];
+//		int[] iArr3 = new int []{100, 95, 80, 70, 60};
+		int[] iArr3 = {100, 95, 80, 70, 60};
+		char[] chArr = {'a' , 'b', 'c', 'd'};
+		
+		for(int i=0; i < iArr1.length; i++){
+			iArr1[i] = i + 1;
+		}
+		
+		for (int i=0; i < iArr2.length; i++){
+			iArr2[i] = (int)(Math.random()*10) + 1;
+		}
+		
+		for (int i=0; i < iArr3.length; i++){
+			System.out.println(iArr3[i]+ ",");
+		}
+			
+		System.out.println(Arrays.toString(iArr2));
+		System.out.println(Arrays.toString(iArr3));
+		System.out.println(Arrays.toString(chArr));
+		System.out.println(chArr);
+		
+		int[] arr = {21, 4, 19, 31, 16};
+		Arrays.sort(arr);
+		for(int i =0; i< arr.length; i++){
+			System.out.println(arr[i]);
+		
+		int [] arr1= {21, 4, 19, 31,16};
+		Arrays.sort(arr1,4,arr1.length);
+		for(int j = 0; i< arr1.length; i++){
+			System.out.println(arr1[i]);
+		}
 		}
 		
 	}
