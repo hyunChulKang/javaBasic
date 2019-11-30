@@ -83,16 +83,16 @@ public class StringArray {
 		 //12345 -> 12,345
 		 //1234 -> 1,234
 		 str ="123456789";
-		 String com = ",";
-		 char too1 = ' ';
-		 for(int i =1; i <= str.length(); i++){
-			 too1 = str.charAt(str.length()-1);
-			 System.out.print(too1);
-			 if(i%3==0){
-				 System.out.print(com);
+		 String too1 = "";
+		 
+		 for(int i =0; i <= str.length()-1; i++){
+			 if(i>0 && i%3==0){
+				 too1 = str.charAt(str.length()-i-1) +"," + too1; 
+			 }else{
+				 too1 = str.charAt(str.length()-i-1) + too1;
 			 }
-//			
 		 }
+		 System.out.print(too1);
 //			 System.out.println();	
 			 
 			 
