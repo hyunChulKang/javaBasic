@@ -7,13 +7,13 @@ public class Exam04 {
 //	[4-1] 다음의 문장들을 조건식으로 표현하라.
 //	1.int형 변수 x가 10보다 크고 20보다 작을 때 true인 조건식						(int x > 10 && int x <20)
 //	2.char 형 변수 ch가 공백이나 탭이 아닐 때 true인 조건식 						(char ch != '' || char ch != ' ')
-//	3.char 형 변수 ch가 'x'또는 'y'일 때 true인 조건식							(char ch = x || char ch = y)
+//	3.char 형 변수 ch가 'x'또는 'y'일 때 true인 조건식							(char ch = 'x' || char ch = 'y')
 //	4.char 형 변수 ch가 숫자 (‘0’~‘9’)일 때 true인 조건식						(char ch >= '0' && char ch <='9')
 //	5.char 형 변수 ch가 영문자 (대문자 또는 소문자) 일 때 true인 조건식				((char ch >= 'a' && char ch <='z')||(char ch >= 'A' && char ch <='Z'))
 //	6.int 형 변수 year가 400으로 나눠떨어지거나 또는 4로 나눠떨어지고 100으로 나눠떨어지지 	((int year%400==0 || year%4==0) && year%100 !=0)
 //		않을 때 true인 조건식
 //	7.boolean 형 변수 powerOn가 false일 때 true인 조건식						(porwerOn == false)
-//	8.문자열 참조변수 str이 "yes"일 때 true인 조건식								(str.equals("yes"))
+//	8.문자열 참조변수 str이 "yes"일 때 true인 조건식								(str =="yes")
 //	
 //	[4-2] 1부터 20까지의 정수 중에서 2 또는 3의 배수가 아닌 수의 총합을 구하시오.
 //		int sum= 0;
@@ -25,18 +25,29 @@ public class Exam04 {
 //		System.out.println(sum);	 //174
 //	
 //	[4-3]  1+(1+2)+(1+2+3)+(1+2+3+4)+...+(1+2+3+...+10) 의 결과를 계산하시오
-		int sum =0;
-		for(int i = 1; i<=10; i++){
-				for(int j = 0; j<i; i++){
-					sum=i+j;
-				}
-				System.out.println(sum);
-			}
-		
-	
-	
-//	[4-4] 1+(-2)+3+(-4)+... 과 같은 식으로 계속 더해나갔을 때 몇까지, 더해야 총합이 100 이상이 되는지 구하시오.
+//		int sum =0;
+//		int total = 0;
+//		for(int i = 1; i<=10; i++){
+//				sum+= i;
+//				total+= sum;
+//			}
+//		System.out.println(total);
+//
 //	
+//	[4-4] 1+(-2)+3+(-4)+... 과 같은 식으로 계속 더해나갔을 때 몇까지, 더해야 총합이 100 이상이 되는지 구하시오.
+//			int sum = 0;
+//			int num = 0;
+//			while(sum < 100) {
+//				++num;
+//				if(num%2==0) {
+//					sum-=num;
+//				}else {
+//					sum+=num;
+//				}
+//				System.out.println(num + "일 때, 총합이 " + sum + "이 된다.");
+//			}
+//		
+		
 //	[4-5] 다음의 for문을 while문으로 변경하시오.
 //	
 //	public class Exercise4_5 {
@@ -45,27 +56,57 @@ public class Exam04 {
 //				for (int j=0; j<=i; j++)
 //					System.out.print("*");
 //				System.out.println();
-//				
+				
 //			}
 //		}	//end of main
 //	} // end of class
 //
+//		int i = 0;
+//		while(i<=10) {
+//			int j = 0;
+//			while(j<=i) {
+//				System.out.print("*");
+//				j++;
+//			}
+//				System.out.println();
+//				i++;
+//		}
+//		
+		
+		
 //	[4-6] 두개의 주사위를 던졌을 때, 눈의 합이 6이 되는 모든 경우의 수를 출력하는 프로그램을 작성하시오.
-//	
+	// 1,2,3,4,5
+	// 5,4,3,2,1
+//		
+//		int count = 0;
+//		for(int i = 1; i<=6; i++) {
+//			for(int j = 6; j>=1; j--) {
+//				if(i + j ==6) {
+//				count +=1;
+//				System.out.println(i + " + " + j + " = " + (i+j));
+//				}
+//			}
+//		}
+//		System.out.println("경우의 수"+ count + "개");
+//		
+		//Math.random() : 0~ 1미만 랜덤수 발생
 //	[4-7] Math.random()을 이용해서 1부터6사이의 임의의 정수를 변수 value에 저장하는
 //		코드를 완성하라. (1)에 알맞은 코드를 넣으시오.
-//		
 //		class Exercise4_7 {
 //		public static void main (String[] args) {
-//			int value = (/* (1) */ );
-//					
+//			int value = ((int)(Math.random()* 6)+ 1 );			//	(int)(Math.random()* 6)+ 1;
 //			System.out.println("value : " +value);
 //		}
 //	}
-//		
 //	[4-8] 방정식 2x+4y=10의 모든 해를 구하시오. 단, x와 y는 정수이고
 //			각각의 범위는 0<=x<=10, 0<=y<=10 이다.
-//			
+//			for(int i=0; i<=10; i++) {
+//				for(int j= 0; j <=10; j++) {
+//					if(2*i + 4*j == 10) {
+//						System.out.println(i+ ","+ j);
+//					}
+//				}
+//			}
 ////			실행결과
 ////			x=1, y=2
 ////			x=3, y=1
@@ -80,27 +121,24 @@ public class Exam04 {
 //			public static void main(String [] args) {
 //				String str = "12345";
 //				int sum = 0;
-//				
 //				for (int i=0; i< str.length(); i++) {
-//					/*
-//					 * (1) 알맞은 코드를 넣어 완성하시오
-//					 */
-//				
+//						sum += str.charAt(i)-48;
 //				}
 //				System.out.println("sum = " + sum);
 ////				실행결과 =15
 //	[4-10] int타입의 변수 num 이 있을 때, 각 자리의 합을 더한 결과를 출력하는 코드를
-//		완성하라. 만일 변수 num의 값이 12345라면, '1+2+3+4+5'의 결과인 15를 출력하라.(1)
-//		에 알맞은 코드를 넣으시오
+//		완성하라. 만일 변수 num의 값이 12345라면, '1+2+3+4+5'의 결과인 15를 출력하라.
+//		(1)		에 알맞은 코드를 넣으시오
 //		
 //			class Exercise4_10 {
 //				public static void main (String [] args) {
 //						int num = 12345;
 //						int sum = 0;
 //						
-//						/*
-//						 * (1) 알맞은 코드를 넣어 완성하시오.
-//						 */
+//					while(num > 0){
+//						sum += num%10;
+//						num = num/10;
+		
 //						System.out.println("sum = " + sum);
 //				
 //			 실행결과 15
@@ -151,22 +189,23 @@ public class Exam04 {
 //	class Execise 4_13{
 //		
 //		public static void main (String[] args){
-//			String value ="12o34";
-//			char ch = ' ';
-//			boolean isNumber = true;
-//			
-//			//반복문과 char charAt(int i)를 이용해서 문자열의 문자를
-//			//하나씩 읽어서 검사한다.
-//			for(int i = 0; i <value.length(); i++){
-//				/*
-//				 * (1) 알맞은 코드를 넣어 완성하시오.
-//				 */
-//			}
-//			if (isNumber){
-//				System.out.println(value + "는 숫자입니다.");
-//			}else{
-//				System.out.println(value + "는 숫자가 아닙니다.");
-//			}
+			String value ="12o34";
+			char ch = ' ';
+			boolean isNumber = true;
+			
+			//반복문과 char charAt(int i)를 이용해서 문자열의 문자를
+			//하나씩 읽어서 검사한다.
+			for(int i = 0; i <value.length(); i++){
+					ch =value.charAt(i);
+				if(!('0'<ch && ch>'5')){
+					isNumber = false;
+				}
+			}
+			if (isNumber){
+				System.out.println(value + "는 숫자입니다.");
+			}else{
+				System.out.println(value + "는 숫자가 아닙니다.");
+			}
 //		}	//end of main
 //	}	//end of class
 //	[4-14] 다음은 숫자맞추기 게임을 작성한 것이다. 1과 100사이의 값을 반복적으로 입력
@@ -177,18 +216,27 @@ public class Exam04 {
 //		class Execies4_14{
 //		public static void main(String [] args){
 //			// 1~100사이의 임의의 값을 얻어서 answer에 저장한다.
-//			int answer = /* (1) */;
-//			int input = 0;			//사용자입력을 저장할 공간
-//			int count = 0;			//시도횟수를 세기위한 변수
-//			
+//			int answer = /* (1) */;  //(int)(Math.random()* 100)+ 1;
+//			int input = 0;		//사용자입력을 저장할 공간
+//			int count = 0;		//시도횟수를 세기위한 변수
+//		
 //			//화면에서 부터  사용자입력을 받기 위해서 Scanner클래스 사용
 //			java.util.Scanner s = new java.util.Scanner(System.in);
 //			
 //			do{
 //				count++;
-//				System.out.print("1rhk 100사이의 값을 입력하세요 :");
+//				System.out.print("1과 100사이의 값을 입력하세요 :");
 //				input = s.nextInt(); //입력받은 값을 변수 input에 저장한다.
 //			
+//				if(answer <input) {
+//					System.out.println(input + " 보다 작습니다.");
+//				
+//				}else if( input < answer){
+//					System.out.println(input + " 보다 큽니다.");
+//				}else{
+//					System.out.println("정답입니다!!");
+//				}
+//		
 //				/*
 //				 * (2) 알맞은 코드를 넣어 완성하시오.
 //				 */
@@ -211,8 +259,9 @@ public class Exam04 {
 //				/*
 //				 * (1) 알맞은 코드를 넣어 완성하시오.
 //				 */
-//				
-//			}
+//				result = result * 10 + tmp % 10;
+//				tmp/=10;	
+//			}				 
 //			if(number == result){
 //				System.out.println( number + "는 회문수 입니다.");
 //			}else{
