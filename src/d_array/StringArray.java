@@ -1,5 +1,7 @@
 package d_array;
 
+import java.util.Scanner;
+
 public class StringArray {
 
 	public static void main(String[] args) {
@@ -72,9 +74,9 @@ public class StringArray {
 //		 str = str.replace("9", "짝");
 //		 System.out.println(str);
 //		 
-//		 String pn = "010-2363-3647";
+//		 String pn = "010-2363-3647";										//replace을 이용한 휴대폰번호 하이픈 제거하기
 //		 //하이픈(-)을 제거해서 출력해주세요.
-//		 pn = pn.replace("-", "");
+//		 pn = pn.replace("-", "");											
 //		 System.out.println(pn);
 //		 
 		 	
@@ -82,31 +84,43 @@ public class StringArray {
 		 //123456789 -> 123,456,789
 		 //12345 -> 12,345
 		 //1234 -> 1,234
-		 str ="123456789";
-		 String too1 = "";
+		
 		 
-		 for(int i =0; i <= str.length()-1; i++){
-			 if(i>0 && i%3==0){
-				 too1 = str.charAt(str.length()-i-1) +"," + too1; 
-			 }else{
-				 too1 = str.charAt(str.length()-i-1) + too1;
+		 
+		 /*
+		  * <<< 천의 자리 콤마(,)찍기 >>>
+		  */
+		 System.out.println("숫자를 입력해주세요>");
+		Scanner sc = new Scanner(System.in);
+			str= sc.nextLine();
+		 
+//		 str ="123456789";													
+//		 String too1 = "";
+//		 
+//		 for(int i =0; i <= str.length()-1; i++){							//str의 길이에 -1을 해서 0자리부터 시작
+//			 if(i>0 && i%3==0){												// ","가 찍히는 부분인 3번째 자리부터 시작할수있게
+//				 too1 = str.charAt(str.length()-i-1) +"," + too1; 			// 뒤에서부터 i번째 만큼 역순으로 선택
+//			 }else{	
+//				 too1 = str.charAt(str.length()-i-1) + too1;
+//			 }
+//		 }
+//		 System.out.print(too1+ "원");
+
+			
+/*                또다른 방법 						*/
+		
+			
+		 int  count = 0;	
+		 
+		 String newNumber = "";
+		 for(int i = str.length() -1; i >=0; i--){
+			 newNumber = str.charAt(i) + newNumber;
+			 count++;
+			 if(count % 3== 0 && count != str.length()){
+				 newNumber = "," + newNumber;
 			 }
 		 }
-		 System.out.print(too1);
-//			 System.out.println();	
-			 
-			 
-//			 for(int i=0; i< str.length()-1; i++){
-//				 too1 =str.substring(str.length()-1);
-//				 if(i%3==0){
-//				 	
-//				 }else{
-//					 System.out.print(com);
-//				 
-//				 }
-//			 }
-//			 System.out.println(too1);
-//		 }
+		 System.out.println(newNumber + "원");
 	}
 		 
 
