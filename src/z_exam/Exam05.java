@@ -1,17 +1,20 @@
 package z_exam;
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class Exam05 {
 
 	public static void main(String[] args) {
 
 			
 //			[5-1] 다음은 배열을 선언하거나 초기화한 것이다. 잘못된 것을 고르고 그 이유를 설명
-//				하시오.
+//				하시오.	d,e
 //					a. int[] arr[];  											//O 선언
 //					b. int[] arr = {1,2,3,};									//X 초기화 쉼표 뒤에 값이 없음
 //					c. int[] arr = new int[5];									//O
 //					d. int[] arr = new int[5]{1,2,3,4,5};						//X []이미 뒤에 5개 값을 넣어 초기화해줫음.
-//					e. int arr[5];												//O 선언
+//					e. int arr[5];												//x 선언
 //					f. int[] arr[] = new int[3][];								//O  2번쨰 차원의 크기를 지정하지 않을때.
 		//	
 //			[5-2] 다음과 같은 배열이 있을 때 , arr[3].length의 값은 얼마인가  ?  
@@ -66,7 +69,7 @@ public class Exam05 {
 //					int[] ballArr = {1,2,3,4,5,6,7,8,9};
 //					int[] ball3 = new int[3];
 //					
-//					//   배열 ballArr의 임의의 요소를 골라서 위치를 바꾼다.
+//					/	   배열 ballArr의 임의의 요소를 골라서 위치를 바꾼다.
 //					for(int i=0; i< ballArr.length;i++) {
 //						int j = (int)(Math.random() * ballArr.length);
 //						int tmp = 0;
@@ -143,7 +146,7 @@ public class Exam05 {
 //						System.out.println(coinUnit[i]+" 원:"+coin[i]);
 //					}
 //					
-//			[5-8]	다음은 배열 answer에 담긴 데이터를 읽고 각 숫자의 개수를 세어서 개수만큼 ‘*’
+//			[5-8]l.ol9ooooooooooooo	다음은 배열 answer에 담긴 데이터를 읽고 각 숫자의 개수를 세어서 개수만큼 ‘*’
 //					을 찍어서 그래프를 그리는 프로그램이다 (1)~(2)에 알맞은 코드를 넣어서 완성하시오
 //					
 //					
@@ -151,17 +154,17 @@ public class Exam05 {
 //					int[] counter = new int[4];
 //					for(int i=0; i < answer.length;i++) {						//counter에 담기
 //
-//						counter[answer[i]-1]++;
+//						counter[answer[i]-1]++;									//0번째부터 읽어야하기때문에 -1을 함 
 //					}	
 //					if(answer[i]==1){
 //					counter[0]++;
-//				}else if (answer[i]==2){
-//					counter[1]++;
-//				}else if (answer[i]==3){
-//					counter[2]++;
-//				}else if (answer[i]==4){
-//					counter[3]++;
-//				}						
+//					}else if (answer[i]==2){
+//						counter[1]++;
+//					}else if (answer[i]==3){
+//						counter[2]++;
+//					}else if (answer[i]==4){
+//						counter[3]++;
+//					}						
 //					for(int i=0; i < counter.length;i++) {
 //						System.out.print(counter[i]);
 //							for(int j=0; j <counter[i]; j++){
@@ -203,6 +206,99 @@ public class Exam05 {
 //					System.out.println();
 //				}
 //		
+//		[5-10] 다음은 알파벳과 숫자를 아래에 주어진 암호표로 암호화하는 프로그램이다.
+//				(1)에 알맞은 코드를 넣어서 완성하시오.
+//			
+//		char[] abcCode =
+//			{ '`','~','!','@','#','$','%','^','&','*',
+//			'(',')','-','_','+','=','|','[',']','{',
+//			'}',';',':',',','.','/'};
+//							// 97  98  99
+//							// a   b   c
+//							// 0   1   2   3   4   5   6   7   8   9
+//			char[] numCode = {'q','w','e','r','t','y','u','i','o','p'};
+//			String src = "abc123";
+//			String result = "";
+//			// src charAt() result 문자열 의 문자를 으로 하나씩 읽어서 변환 후 에 저장
+//			for(int i=0; i < src.length();i++) {
+//			char ch = src.charAt(i);
+//				int intch=(int)ch;
+//				if(intch>58){
+//					result += abcCode[intch-97];
+//				}else{
+//					result += numCode[intch-48];
+//				}
+//				
+//			}
+//			System.out.println("src:"+src);
+//			System.out.println("result:"+result);
+//		
+////		src:abc123
+////		result:`~!wer
+			
+//		[5-11] 주어진 2차원 배열의 데이터보다 가로와 세로로 1이 더 큰 배열을 생성해서 배열 
+//			      의 행과 열의 마지막 요소에 각 열과 행의 총합을 저장하고 출력하는 프로그램이다. (1)
+//			      에 알맞은 코드를 넣어서 완성하시오.
+//		
+//		int[][] score = {
+//							{100, 100, 100}
+//							, {20, 20, 20}
+//							, {30, 30, 30}
+//							, {40, 40, 40}
+//							, {50, 50, 50}
+//						};
+//		int[][] result = new int[score.length+1][score[0].length+1];
+//				
+//		for(int i=0; i < score.length;i++) {
+//				
+//			for(int j=0; j < score[i].length;j++) {
+//				result[i][j] = score[i][j];
+//				result[i][score[0].length] += result[i][j];
+//				result[score[0].length][j] += result[i][j];
+//				result[score.length][score[0].length] += result[i][j];
+//				??
+//			}
+//		}
+//				
+//		for(int i=0; i < result.length;i++) {
+//				
+//			for(int j=0; j < result[i].length;j++) {
+//				System.out.printf("%4d",result[i][j]);
+//			}
+//			System.out.println();
+//		}
+//		100 100 100 300
+//		20 20 20 60
+//		30 30 30 90
+//		40 40 40 120
+//		50 50 50 150
+//		240 240 240 720
+//	[5-13] 단어의 글자위치를 섞어서 보여주고 원래의 단어를 맞추는 예제이다 실행결과와 .
+//		     같이 동작하도록 예제의 빈 곳을 채우시오.
+//		
+//		     String[] words = { "가나다라마바사", "computer", "mouse", "phone" };
+//		     Scanner scanner = new Scanner(System.in);
+//		     for(int i=0;i<words.length;i++) {
+//			     char[] question = words[i].toCharArray(); // String char[]
+//			     
+//			     for(int j =0; j<question.length*20; j++){
+//			    	 int ran = (int)(Math.random()*question.length);
+//			    	 char temp = question[0];
+//			    	 question[0] = question[ran];
+//			    	 question[ran] = temp;
+//			     }
+//				   System.out.printf("Q%d. %s의 정답을 입력하세요.>",i+1, new String(question));
+//				    		 									
+//				 String answer = scanner.nextLine();
+//				     
+//			     if(words[i].equals(answer.trim())){
+//			    	 
+//			    	 System.out.printf("맞았습니다.%n%n");
+//			     }else{
+//			    	 System.out.printf("틀렸습니다.%n%n");
+//			     }
+//		     
+//		     }
 	}
 
 }
