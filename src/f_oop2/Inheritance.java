@@ -36,8 +36,8 @@ public class Inheritance {
 		 * -상속으로 인해 여러가지 형태를 가지게 되는 특징을 말한다.
 		 * -부모타입으로 생성된 객체는 부모타입에 정의된 멤버만 사용 가능하다.
 		 * -부모타입과 자식타입으로 서로 형변환이 가능하다.
-		 * -자식타입 > 부모타입 : Up-casting(생략가능)
-		 * -부모타입 > 자식타입 : Down-casting(생략불가)
+		 * -자식타입 > 부모타입 : Up-casting(생략가능)			//SampleParent sp = new SampleChild()	
+		 * -부모타입 > 자식타입 : Down-casting(생략불가)						
 		 * -부모와 자식에 동일한 메서드가 있는 경우 자식의 메서드를 사용한다.
 		 * -부모와 자식에 동일한 멤버변수가 있는 경우 부모타입에서는 부모의 변수를 자식타입에서는
 		 * 	자식의 변수를 사용한다.
@@ -52,8 +52,29 @@ public class Inheritance {
 		 * <<Singleton (싱글톤 패턴) >>
 		 * - 객체 생성을 제한하여 하나의 객체만 사용하게 하는 디자인 패턴이다.
 		 * - 객체들간에 객체를 공유하기 위해 사용한다.
-		 * ㅗ
+		 * 
 		 */
+		
+		AccessModifier am = new AccessModifier();
+		
+		System.out.println(am.publicVar);
+		am.publicMethod();
+		System.out.println(am.protectedVar);
+		am.protectedMethod();
+		System.out.println(am.defaultVar);
+		am.deaultMethod();
+//		System.out.println(am.privateVar);
+//		am.privateMethod();
+		
+		Time t = new Time();
+		
+//		t.setHour(16);
+//		t.setMinute(5);
+//		t.setSecond(999);
+//		
+		t.setSecond(10108799);
+		System.out.println(t);
+		
 	}
 
 }
